@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* {
+			text-align: center;
+		}
+		img {
+			width: 600px;
+			height: 400px;
+			
+		}
+	</style>
+	<script>
+		var imagenActual = 0;
+		var arrayImagenes = ['img/punta_cana_1.jpg','img/punta_cana_2.jpg','img/punta_cana_3.jpg','img/punta_cana_4.jpg','img/punta_cana_5.jpg','img/punta_cana_6.jpg'];
+		window.onload = function() {
+			//activar un listener sobre todo el documento
+			document.getElementById('anterior').addEventListener('click', imagenAnterior);
+			document.getElementById('siguiente').addEventListener('click', imagenSiguiente);
+		}
+			
+		function imagenAnterior (){
+			//alert(this.id)
+			//alert(this.type)
+			//console.log(this)
+			if (imagenActual>0) {
+				imagenActual--;
+				document.getElementById('imagen').src=arrayImagenes[imagenActual];
+			}else {
+				imagenActual= arrayImagenes.length-1
+			}
+		}	
+		function imagenSiguiente () {
+			if (imagenActual < arrayImagenes.length-1) {
+				imagenActual++;
+				document.getElementById('imagen').src=arrayImagenes[imagenActual];
+			} else {
+				imagenActual=0;
+			}
+		}
+</script>
+</head>
+<body>
+		<p>Click en la imagen para cambiar</p>
+		<img id='imagen' src='img/punta_cana_1.jpg'>
+		<br>
+		<input type="button" name="" value="<<" id="anterior">
+		<input type="button" name="" value="'>>" id="siguiente">
+		
+</body>
+</html>
